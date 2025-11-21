@@ -3,7 +3,7 @@
         "id": "1",
         "nombre": "Pizza Margarita",
         "descripcion": "Masa fina con salsa de tomate, muzzarella, y albahaca fresca",
-        "precio": 500,
+        "price": 500,
         "categoria": "salado",
         "imagen": "/images/pizza.png"
     },
@@ -11,7 +11,7 @@
         "id": "2",
         "nombre": "Hamburguesa Clásica",
         "descripcion": "Carne de res, lechuga, tomate, queso cheddar y salsa especial",
-        "precio": 700,
+        "price": 700,
         "categoria": "salado",
         "imagen": "/images/hamburguesa.jpg"
     },
@@ -19,7 +19,7 @@
         "id": "3",
         "nombre": "Ensalada César",
         "descripcion": "Lechuga romana, crutones, queso parmesano y aderezo César",
-        "precio": 400,
+        "price": 400,
         "categoria": "salado",
         "imagen": "/images/ensalada.jpeg"
     },
@@ -27,7 +27,7 @@
         "id": "4",
         "nombre": "Croissant de Chocolate",
         "descripcion": "Hojaldre relleno de crema de chocolate",
-        "precio": 1200,
+        "price": 1200,
         "categoria": "dulce",
         "imagen": "/images/croissant.jpg"
     }

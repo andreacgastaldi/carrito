@@ -1,0 +1,29 @@
+// ...existing code...
+export const validateProduct = (product, fileRequired = true) => {
+  const errors = {};
+
+  if (!product?.nombre || product.nombre.trim() === "") {
+    errors.nombre = "El nombre es obligatorio";
+  }
+
+  if (!product?.descripcion || product.descripcion.trim() === "") {
+    errors.descripcion = "La descripción es obligatoria";
+  }
+
+  const priceNumber = Number(product?.price);
+  if (product?.price === "" || isNaN(priceNumber) || priceNumber <= 0) {
+    errors.price = "El precio debe ser un número mayor a 0";
+  }
+
+  if (!product?.categoria || product.categoria.trim() === "") {
+    errors.categoria = "La categoría es obligatoria";
+  }
+
+  // acepta que la imagen se pase como `file` o `imagen`
+  if (fileRequired && !(product?.file || product?.imagen)) {
+    errors.file = "La imagen es obligatoria";
+  }
+
+  return errors;
+};
+// ...existing code...

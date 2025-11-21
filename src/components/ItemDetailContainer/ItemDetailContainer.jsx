@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export const ItemDetailContainer = () => {  
     
     console.log("ItemDetailContainer renderizado");
-    // ...resto del código...
+   
     const [detail, setDetail] = useState({});
 
     const { id } = useParams(); 
@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
             return res.json();
         })
         .then((data) => {
-            console.log(data); // <-- Agrega esto
+            console.log(data); 
             const found = data.find((p) => p.id === id);
             if (found) {
                 setDetail(found);
