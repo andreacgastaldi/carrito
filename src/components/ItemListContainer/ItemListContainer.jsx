@@ -3,9 +3,11 @@ import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../services/products.js";
 import "./ItemListContainer.css";
+
 export const ItemListContainer = ({titulo}) => {
     const [products, setProducts] = useState([]);
     const {categoria} = useParams();
+    
     useEffect(() => {
         getProducts(categoria)
         .then((data) => setProducts(data))

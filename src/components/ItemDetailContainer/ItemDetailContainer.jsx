@@ -1,6 +1,8 @@
+
 import { useParams } from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useEffect, useState } from "react";
+import { getProductById } from "../../services/products.js";
 
 export const ItemDetailContainer = () => {  
     
@@ -11,24 +13,11 @@ export const ItemDetailContainer = () => {
     const { id } = useParams(); 
 
     useEffect(() => {
-        fetch("/data/products.json")
-        .then((res) =>{
-            if(!res.ok){
-                throw new Error("No se encontro el producto");
-            }
-            return res.json();
-        })
-        .then((data) => {
-            console.log(data); 
-            const found = data.find((p) => p.id === id);
-            if (found) {
-                setDetail(found);
-            } else {
-                throw new Error("No se encontro el producto");
-            }   
-        })
-        .catch((error) => {
-            console.error("There was a problem with the fetch operation:", error);
+        
+        getProductById(id)
+        .then((data) => setDetail(data))
+        .catch((err) => {
+            console.log(err);
         });
     }, [id]);
 

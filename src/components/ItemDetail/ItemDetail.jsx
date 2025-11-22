@@ -2,11 +2,13 @@ import { Item } from '../Item/Item';
 import { useCartContext } from '../../Context/CartContext/useCartContext';
 import { Count } from '../Count/Count';
 
-//import './ItemDetail.css';
+
 
 export const ItemDetail = ({detail}) => {
+    
     const {addItem} = useCartContext();
     const handleAdd = (quantity) => {
+        console.log('ItemDetail.handleAdd -> detail:', detail, 'quantity:', quantity);
         addItem({...detail, quantity});
     }
     return (

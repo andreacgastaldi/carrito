@@ -34,3 +34,14 @@ export const getProducts = async (categoria) => {
   const results = await res.json();
   return results;
 };
+
+// Traer uno por id
+export const getProductById = async (id) => {
+  const res = await fetch(`${BASE_URL}/${id}`);
+  if (!res.ok) {
+    throw new Error("Error al obtener el producto");
+  }
+
+  const result = await res.json();
+  return result;
+};
