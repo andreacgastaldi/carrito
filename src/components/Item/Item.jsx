@@ -1,8 +1,8 @@
-
+import { Link } from 'react-router-dom';    
 import './Item.css';
 
-export const Item = ({nombre, precio, descripcion, imagen,categoria, children}) => {
-
+export const Item = ({id, nombre, precio, descripcion, imagen,categoria, children}) => {
+     console.log("Item render -> id:", id);
     return (
      
         <article className="product-item">
@@ -10,7 +10,11 @@ export const Item = ({nombre, precio, descripcion, imagen,categoria, children}) 
             <p>Precio: ${precio}</p>
             <p>Descripcion: {descripcion}</p>
             <p>Categoria: {categoria}</p>
-            <img src={imagen} alt={nombre} />
+            <Link to={`/detail/${id}`}>
+                <img src={imagen} alt={nombre} />
+                <h3>{nombre}</h3>
+            </Link>
+            {/* <img src={imagen} alt={nombre} /> */}
             {children}
         </article>
      

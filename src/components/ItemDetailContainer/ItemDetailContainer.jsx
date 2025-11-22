@@ -13,7 +13,9 @@ export const ItemDetailContainer = () => {
     const { id } = useParams(); 
 
     useEffect(() => {
-        
+        console.log("ItemDetailContainer useEffect fired, id:", id);
+        if (!id) return;
+        debugger; // pausar si DevTools está abierto
         getProductById(id)
         .then((data) => setDetail(data))
         .catch((err) => {
