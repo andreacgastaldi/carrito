@@ -1,20 +1,16 @@
 import { Link } from "react-router-dom";
 import { Item } from "../Item/Item";    
+import "./ItemList.css"; 
 
 export const ItemList = ({ lista }) => {
-    return (
-        <>
-           {lista.length ? (
-                lista.map((prod) => (
-                    <Link to={`/detail/${prod.id}`} key={prod.id}>
-                        <Item  {...prod}/>
-                    </Link> 
-                ))
-            ) : (
-                <p>No hay productos</p>
-            )}
-        </>
-    );
+  console.log("ItemList recibió lista:", lista);
+  return (
+    <section className="item-list">
+      {lista.map((item) => {
+        console.log("ItemList renderizando item con id:", item.id);
+        return <Item key={item.id} {...item} />;
+      })}
+    </section>
+  );
 };
-
                     

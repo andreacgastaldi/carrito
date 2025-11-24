@@ -11,11 +11,12 @@ export const ItemDetailContainer = () => {
     const [detail, setDetail] = useState({});
 
     const { id } = useParams(); 
-
+    console.log("useParams id ->", id);
+    
     useEffect(() => {
         console.log("ItemDetailContainer useEffect fired, id:", id);
         if (!id) return;
-        debugger; // pausar si DevTools está abierto
+        
         getProductById(id)
         .then((data) => setDetail(data))
         .catch((err) => {
@@ -23,13 +24,14 @@ export const ItemDetailContainer = () => {
         });
     }, [id]);
 
-    return <main>
+    return (
+    <main>
         <p>Probando render </p>
         {Object.keys(detail).length ?(
-            <ItemDetail detail={detail} />
+            <ItemDetail detail={detail} />  
         ): (
             <p>Cargando...</p>  
         )}
     </main>
-    ;
+    );
 }   
